@@ -1,26 +1,21 @@
 import {StyleSheet} from 'react-native';
 
 var Style = StyleSheet.create({
-  title:{
-    color: '#212121',
-    fontSize: 30,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    padding: 20
+  container: {
+    flex: 1,
+    padding: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
-  kvinnor:{
-    color: '#EF5350',
-    fontSize: 20,
-    textAlign: 'center',
-    padding:7
+  text: {
+    marginLeft: 12,
+    fontSize: 16,
   },
-  man:{
-    color: '#26A69A',
-    fontSize: 20,
-    textAlign: 'center',
-    padding:7
-  },
-
+  photo: {
+    height: 40,
+    width: 40,
+    borderRadius: 20,
+  }
 
 });
 export default Style;
