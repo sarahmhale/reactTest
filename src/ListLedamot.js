@@ -4,6 +4,7 @@ import Style from './styles';
 import Row from './row';
 import api from './api';
 var ledamotArray = [];
+
 export default class ListLedamot extends Component {
     constructor(props) {
         super(props);
@@ -16,23 +17,28 @@ export default class ListLedamot extends Component {
             isLoading: true
 
         };
-
     }
 
     componentWillMount() {
         api().then((res) => {
             ledamotArray = res.personlista.person;
-            console.log("ledamotArray" + ledamotArray);
             this.setState({dataSource: this.state.dataSource.cloneWithRows(ledamotArray), isLoading: false})
         });
 
     }
+
+    onPressLedamot(){
+      this.props.navigator.push({
+        id: 'ViewOneLedamot'
+      });
+    }
     renderRow(rowData, sectionID, rowID) {
         return (
-
-            <TouchableHighlight >
+            <TouchableHighlight onPress={this.onPressLedamot.bind(this)}>
                 <View style={Style.container}>
-                    <Image source={{ uri: rowData.bild_url_80}} style={Style.photo} />
+                    <Image source={{
+                        uri: rowData.bild_url_80
+                    }} style={Style.photo}/>
                     <Text style={Style.text} numberOfLines={1}>{rowData.tilltalsnamn} {rowData.efternamn}
                     </Text>
                 </View>
@@ -42,7 +48,6 @@ export default class ListLedamot extends Component {
 
     render() {
 
-        console.log(ledamotArray);
         return (
             <View>
                 <ListView dataSource={this.state.dataSource} renderRow={this.renderRow.bind(this)} enableEmptySections={true}/>
