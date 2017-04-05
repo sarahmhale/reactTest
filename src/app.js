@@ -13,12 +13,16 @@ export default class test extends Component {
     }
 
     navigatorRenderScene(route, navigator) {
+console.log("id:", route.id)
+      if(route.id==='ListLedamot'){
+          console.log("in here");
+        return(<ListLedamot navigator={navigator} />);
 
-      if(route.id=='ListLedamot'){
-        return(<ListLedamot navigator={navigator}/>);
       }
-      if(route.id=='ViewOneLedamot'){
-        return(<ViewOneLedamot navigator={navigator}/>)
+      if(route.id==='ViewOneLedamot'){
+        console.log("hejhejehöjheöji;: ",route.info)
+        return(<ViewOneLedamot navigator={navigator} {...route.passProps}/>)
+
       }
       /**  _navigator = navigator;
         switch (route.id) {

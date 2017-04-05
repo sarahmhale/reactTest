@@ -3,6 +3,7 @@ import {ListView, Text, View, TouchableHighlight, Image} from 'react-native';
 import Style from './styles';
 import Row from './row';
 import api from './api';
+
 var ledamotArray = [];
 
 export default class ListLedamot extends Component {
@@ -27,14 +28,18 @@ export default class ListLedamot extends Component {
 
     }
 
-    onPressLedamot(){
+    onPressLedamot(rowData){
+      console.log(rowData)
       this.props.navigator.push({
-        id: 'ViewOneLedamot'
+        id: 'ViewOneLedamot',
+        passProps: {
+          info: rowData
+        }
       });
     }
     renderRow(rowData, sectionID, rowID) {
         return (
-            <TouchableHighlight onPress={this.onPressLedamot.bind(this)}>
+            <TouchableHighlight onPress={this.onPressLedamot.bind(this,rowData)}>
                 <View style={Style.container}>
                     <Image source={{
                         uri: rowData.bild_url_80
