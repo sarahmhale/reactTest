@@ -2,7 +2,6 @@ import * as types from './types';
 import Api from '../lib/api'
 
 export function fetchedLedamoter() {
-  console.log("in here")
     return (dispatch, getState) => {
         return Api.get(`/personlista/?iid=&fnamn=&enamn=&f_ar=&kn=&parti=&valkrets=&rdlstatus=&org=&utformat=json&termlista=`).then(resp => {
             dispatch(setSearchedLedamoter({
