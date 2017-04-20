@@ -11,8 +11,3 @@ export const searchedLedamoter = createReducer({}, {
         return newState;
     }
 });
-export const ledarmotCount = createReducer(0, {
-    [types.SET_SERCHED_LEDAMOTER](state, action) {
-        return action.ledamoter.personlista.person.length;
-    }
-})

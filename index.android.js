@@ -27,7 +27,6 @@ function configureStore(initialState){
 const store = configureStore({});
 
 
-
 class Layout extends Component {
     render() {
         return (
