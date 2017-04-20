@@ -40,7 +40,7 @@ class Home extends Component {
       <ScrollView>
         {this.ledamoter().map((ledamoter) => {
           return <TouchableHighlight key={ledamoter.hangar_id}
-            onPress={()=>  this.props.navigate({key:'Detail', id:ledamoter.hangar_id})}>
+            onPress={()=>  this.props.navigate({key:'Detail', id: ledamoter.hangar_id})}>
               <View style={Style.container}>
                 <Image source={{  uri: ledamoter.bild_url_80  }} style={Style.photo}/>
                 <Text style={Style.text} numberOfLines={1}>{ledamoter.tilltalsnamn} {ledamoter.efternamn}</Text>

@@ -3,7 +3,8 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableHighlight
+  TouchableHighlight,
+  Button,
 } from 'react-native'
 import {
   connect
@@ -24,16 +25,20 @@ class Detail extends Component {
   render() {
     const ledamoter = this.ledamoter()
     if(!ledamoter){return null}
-    return (<View style={{marginTop:20}}>
-      <Text>{ledamoter.efternamn}</Text>
-      </View>);
+    return (
+      <View style={{marginTop:20}}>
+        <Button title="Back" onPress={()=>this.props.navigationBack()}/>
+        <Text>{ledamoter.efternamn}</Text>
+      </View>
+      );
   }
 }
-
+//Connect actions
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(ActionCreators, dispatch);
 }
 
+//Connects the state (the redux store)
 function mapStateToProps(state) {
   return {
     navigationParams: state.navigationParams,
@@ -41,4 +46,5 @@ function mapStateToProps(state) {
   };
 }
 
+//Here is thne connecteing made..
 export default connect(mapStateToProps, mapDispatchToProps)(Detail);
